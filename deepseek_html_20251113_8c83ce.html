@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Link Redirector - Create PDF Viewer with Redirect Button</title>
+    <meta name="description" content="Free tool to create PDF viewers with custom redirect buttons for your customers">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>📄 PDF Link Redirector</h1>
+            <p class="subtitle">Create beautiful PDF viewers with custom redirect buttons for your customers</p>
+        </header>
+
+        <div class="form-container">
+            <div class="input-group">
+                <label for="pdfUrl">📎 PDF URL *</label>
+                <input type="url" id="pdfUrl" placeholder="https://yourdomain.com/document.pdf" required>
+                <small>Direct link to your PDF file</small>
+            </div>
+            
+            <div class="input-group">
+                <label for="redirectUrl">🔗 Redirect URL *</label>
+                <input type="url" id="redirectUrl" placeholder="https://yourwebsite.com/offer" required>
+                <small>Where customers go after viewing PDF</small>
+            </div>
+            
+            <div class="input-group">
+                <label for="buttonText">🔄 Button Text</label>
+                <input type="text" id="buttonText" placeholder="Visit Our Website" value="Visit Our Website">
+                <small>Text displayed on the redirect button</small>
+            </div>
+
+            <div class="input-group">
+                <label for="buttonColor">🎨 Button Color</label>
+                <input type="color" id="buttonColor" value="#e74c3c">
+                <small>Choose button color that matches your brand</small>
+            </div>
+            
+            <button onclick="generateViewerLink()" class="generate-btn">🚀 Generate PDF Viewer Link</button>
+        </div>
+        
+        <div id="result" class="result-container" style="display: none;">
+            <h3>🎉 Your PDF Viewer Link is Ready!</h3>
+            <div class="link-container">
+                <input type="text" id="generatedLink" readonly>
+                <button onclick="copyLink()" class="copy-btn">📋 Copy Link</button>
+            </div>
+            <div class="action-buttons">
+                <button onclick="testViewer()" class="test-btn">👀 Test Viewer</button>
+                <button onclick="createQRCode()" class="qrcode-btn">📱 QR Code</button>
+            </div>
+            
+            <div id="qrcode-container" class="qrcode-container" style="display: none;">
+                <h4>📱 Mobile QR Code</h4>
+                <canvas id="qrcode"></canvas>
+                <button onclick="downloadQRCode()" class="download-btn">💾 Download QR Code</button>
+            </div>
+
+            <div class="usage-tips">
+                <h4>💡 Usage Tips:</h4>
+                <ul>
+                    <li>Share this link in emails, messages, or social media</li>
+                    <li>Embed in your website as <code>&lt;iframe src="your-link"&gt;</code></li>
+                    <li>Use the QR code for print materials or presentations</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="features">
+            <h3>✨ Features</h3>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h4>🔒 No Installation</h4>
+                    <p>Works directly in browser - no apps required</p>
+                </div>
+                <div class="feature">
+                    <h4>📱 Mobile Friendly</h4>
+                    <p>Responsive design works on all devices</p>
+                </div>
+                <div class="feature">
+                    <h4>🎨 Customizable</h4>
+                    <p>Custom button text and colors</p>
+                </div>
+                <div class="feature">
+                    <h4>⚡ Fast</h4>
+                    <p>Lightweight and loads quickly</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
