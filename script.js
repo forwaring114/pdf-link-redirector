@@ -27,9 +27,9 @@ function generateViewerLink() {
         color: encodeURIComponent(buttonColor.replace('#', ''))
     });
     
-    // Generate the viewer link
+    // Generate the viewer link - FIXED LINE (removed extra slash)
     const baseUrl = window.location.href.replace('/index.html', '');
-    const viewerLink = `${baseUrl}/viewer.html?${params}`;
+    const viewerLink = `${baseUrl}viewer.html?${params}`;
     
     // Display the result
     document.getElementById('generatedLink').value = viewerLink;
